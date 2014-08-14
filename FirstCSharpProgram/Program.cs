@@ -9,6 +9,7 @@ namespace FirstCSharpProgram
     {
         static void Main(string[] args)
         {
+            Console.Write("GIT learned");
         }
     }
 }
