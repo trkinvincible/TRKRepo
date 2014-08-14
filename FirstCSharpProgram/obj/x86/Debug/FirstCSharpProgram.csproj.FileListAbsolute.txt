@@ -1,0 +1,4 @@
+C:\TRKRepo\FirstCSharpProgram\bin\Debug\FirstCSharpProgram.exe
+C:\TRKRepo\FirstCSharpProgram\bin\Debug\FirstCSharpProgram.pdb
+C:\TRKRepo\FirstCSharpProgram\obj\x86\Debug\FirstCSharpProgram.exe
+C:\TRKRepo\FirstCSharpProgram\obj\x86\Debug\FirstCSharpProgram.pdb
