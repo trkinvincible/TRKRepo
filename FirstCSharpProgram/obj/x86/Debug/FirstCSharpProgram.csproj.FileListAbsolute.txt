@@ -2,3 +2,7 @@ C:\TRKRepo\FirstCSharpProgram\bin\Debug\FirstCSharpProgram.exe
 C:\TRKRepo\FirstCSharpProgram\bin\Debug\FirstCSharpProgram.pdb
 C:\TRKRepo\FirstCSharpProgram\obj\x86\Debug\FirstCSharpProgram.exe
 C:\TRKRepo\FirstCSharpProgram\obj\x86\Debug\FirstCSharpProgram.pdb
+D:\GitWorkSpace\TRKRepo\FirstCSharpProgram\obj\x86\Debug\FirstCSharpProgram.exe
+D:\GitWorkSpace\TRKRepo\FirstCSharpProgram\obj\x86\Debug\FirstCSharpProgram.pdb
+D:\GitWorkSpace\TRKRepo\FirstCSharpProgram\bin\Debug\FirstCSharpProgram.exe
+D:\GitWorkSpace\TRKRepo\FirstCSharpProgram\bin\Debug\FirstCSharpProgram.pdb
