@@ -104,17 +104,24 @@ namespace FirstCSharpProgram
             billAmount.Trim();
             Int32 lengthOfString = billAmount.Length;
             Int16 i = 0;
+            bool beginImgPart = false;
             Int16 noOfCharacters = 0;
             Obj.m_billAmountArrayRealPart = new Char[lengthOfString];
             Obj.m_billAmountArrayImgPart  = new Char[lengthOfString];
 
             while(lengthOfString > i )
             {
-                //if(billAmount[i] != '.')
-                //{
-
-                //    continue;
-                //}
+                if (billAmount[i] == '.')
+                {
+                    beginImgPart = true;
+                    IF(beginImgPart == true)
+                    {
+                        i++;
+                        Obj.m_billAmountArrayImgPart[i] = billAmount[i];
+                        noOfCharacters++;
+                    }
+                    continue;
+                }
                 Obj.m_billAmountArrayRealPart[i] = billAmount[i];
                 noOfCharacters++;
                 i++;
