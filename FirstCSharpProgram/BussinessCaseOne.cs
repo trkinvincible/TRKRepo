@@ -84,8 +84,11 @@ namespace FirstCSharpProgram
                 else
                 {
                     Int32 digit = Int16.Parse((m_billAmountArrayRealPart[letter]).ToString());
-                    toDisplay += (String)m_unitDigits[digit];
-                    toDisplay += m_place[letter];
+                    if (digit != 0)
+                    {
+                        toDisplay += (String)m_unitDigits[digit];
+                        toDisplay += m_place[letter];
+                    }
                     letter++;
                 }
                 noOfCharacters--;
