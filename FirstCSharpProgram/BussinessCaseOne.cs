@@ -7,38 +7,37 @@ namespace FirstCSharpProgram
 {
     class BussinessCaseOne
     {
-        public Char[] billAmountArray;
+        public Char[] m_billAmountArrayRealPart;
+        public Char[] m_billAmountArrayImgPart;
         public String toDisplay;
         public System.Collections.Hashtable m_unitDigits;
         public System.Collections.Hashtable m_tensDigits;
         public System.Collections.Hashtable m_spltensDigits;
-        public String[] m_place= { "Thousand", "Hundred" };
+        public String[] m_place= { "Thousand ", "Hundred " };
 
         public BussinessCaseOne()
         {
-            toDisplay = new String('0', 999);
-
             m_unitDigits = new System.Collections.Hashtable();
-            m_unitDigits.Add(1, "One");
-            m_unitDigits.Add(2, "Two");
-            m_unitDigits.Add(3, "Three");
-            m_unitDigits.Add(4, "Four");
-            m_unitDigits.Add(5, "Five");
-            m_unitDigits.Add(6, "Six");
-            m_unitDigits.Add(7, "Seven");
-            m_unitDigits.Add(8, "Eight");
-            m_unitDigits.Add(9, "Nine");
+            m_unitDigits.Add(1, "One ");
+            m_unitDigits.Add(2, "Two ");
+            m_unitDigits.Add(3, "Three ");
+            m_unitDigits.Add(4, "Four ");
+            m_unitDigits.Add(5, "Five ");
+            m_unitDigits.Add(6, "Six ");
+            m_unitDigits.Add(7, "Seven ");
+            m_unitDigits.Add(8, "Eight ");
+            m_unitDigits.Add(9, "Nine ");
 
             m_tensDigits = new System.Collections.Hashtable();
             m_tensDigits.Add(1, " ");
-            m_tensDigits.Add(2, "Twenty");
-            m_tensDigits.Add(3, "Thirty");
-            m_tensDigits.Add(4, "Fourty");
-            m_tensDigits.Add(5, "Fifty");
-            m_tensDigits.Add(6, "Sixty");
-            m_tensDigits.Add(7, "Seventy");
-            m_tensDigits.Add(8, "Eighty");
-            m_tensDigits.Add(9, "Niney");
+            m_tensDigits.Add(2, "Twenty ");
+            m_tensDigits.Add(3, "Thirty ");
+            m_tensDigits.Add(4, "Fourty ");
+            m_tensDigits.Add(5, "Fifty ");
+            m_tensDigits.Add(6, "Sixty ");
+            m_tensDigits.Add(7, "Seventy ");
+            m_tensDigits.Add(8, "Eighty ");
+            m_tensDigits.Add(9, "Niney ");
 
             m_spltensDigits = new System.Collections.Hashtable();
             m_spltensDigits.Add(1, "Eleven");
@@ -60,23 +59,32 @@ namespace FirstCSharpProgram
             {
                 if( noOfCharacters < 3)
                 {
-                    Int16 digit = Convert.ToInt16(billAmountArray[letter]);
+                    Int32 digit = Int16.Parse((m_billAmountArrayRealPart[letter]).ToString());
                     if (digit == 1 && passedTens == false)
                     {
-                        digit = Convert.ToInt16(billAmountArray[letter]);
-                        toDisplay += m_spltensDigits[digit];
-                        passedTens = true;
+                        letter++;
+                        digit = Int16.Parse((m_billAmountArrayRealPart[letter]).ToString());
+                        toDisplay += (String)m_spltensDigits[digit];
+                        break;
                     }
-                    else
+                    else if (digit == 0)
                     {
-                        toDisplay += m_tensDigits[digit];
+                        passedTens = true;
+                        letter++;
+                        digit = Int16.Parse((m_billAmountArrayRealPart[letter]).ToString());
+                        toDisplay += (String)m_unitDigits[digit];
+                        break;
+                    }
+                    else if (digit != 0)
+                    {
+                        toDisplay += (String)m_tensDigits[digit];
                         letter++;
                     }
                 }
                 else
                 {
-                    Int16 digit = Int16.Parse((billAmountArray[letter]).ToString());
-                    toDisplay.Concat(m_unitDigits[digit]);
+                    Int32 digit = Int16.Parse((m_billAmountArrayRealPart[letter]).ToString());
+                    toDisplay += (String)m_unitDigits[digit];
                     toDisplay += m_place[letter];
                     letter++;
                 }
@@ -86,19 +94,25 @@ namespace FirstCSharpProgram
 
         static void Main()
         {
-            //Console.Write("Hello");
-
             BussinessCaseOne Obj = new BussinessCaseOne();
 
+            Console.Write("please enter Bill Amount:");
             String billAmount = Console.ReadLine();
             billAmount.Trim();
             Int32 lengthOfString = billAmount.Length;
             Int16 i = 0;
             Int16 noOfCharacters = 0;
-            Obj.billAmountArray = new Char[lengthOfString];
-            while(lengthOfString > i && billAmount[i] != '.')
+            Obj.m_billAmountArrayRealPart = new Char[lengthOfString];
+            Obj.m_billAmountArrayImgPart  = new Char[lengthOfString];
+
+            while(lengthOfString > i )
             {
-                Obj.billAmountArray[i] = billAmount[i];
+                //if(billAmount[i] != '.')
+                //{
+
+                //    continue;
+                //}
+                Obj.m_billAmountArrayRealPart[i] = billAmount[i];
                 noOfCharacters++;
                 i++;
             }
