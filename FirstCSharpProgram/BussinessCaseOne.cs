@@ -114,7 +114,7 @@ namespace FirstCSharpProgram
                 if (billAmount[i] == '.')
                 {
                     beginImgPart = true;
-                    IF(beginImgPart == true)
+                    if(beginImgPart == true)
                     {
                         i++;
                         Obj.m_billAmountArrayImgPart[i] = billAmount[i];
