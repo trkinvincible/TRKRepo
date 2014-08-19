@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>FirstCSharpProgram.BussinessCaseOne</StartupObject>
+    <StartupObject>FirstCSharpProgram.TicTacToe</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -47,8 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BussinessCaseOne.cs" />
+    <Compile Include="BussinessCaseTwo.cs" />
     <Compile Include="MultiDimentionalArrayTestProg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SquareRoot.cs" />
+    <Compile Include="TicTacToe.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

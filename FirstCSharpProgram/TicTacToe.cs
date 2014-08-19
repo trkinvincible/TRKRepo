@@ -28,24 +28,25 @@ namespace FirstCSharpProgram
                 for (int j = 0; j < 6;j++)
                 {
                     if(i == 1 && j == 1)
-                        Console.Write("{0} ", m_board[i, j]);
-                    if (i == 1 && j == 1)
-                        Console.Write("{0} ", m_board[i, j]);
-                    if (i == 1 && j == 1)
-                        Console.Write("{0} ", m_board[i, j]);
-                    if (i == 1 && j == 1)
-                        Console.Write("{0} ", m_board[i, j]);
-                    if (i == 1 && j == 1)
-                        Console.Write("{0} ", m_board[i, j]);
-                    if (i == 1 && j == 1)
-                        Console.Write("{0} ", m_board[i, j]);
-                    if (i == 1 && j == 1)
-                        Console.Write("{0} ", m_board[i, j]);
-                    if (i == 1 && j == 1)
-                        Console.Write("{0} ", m_board[i, j]);
-                    if (i == 1 && j == 1)
-                        Console.Write("{0} ", m_board[i, j]);
-                    Console.Write("{0} ", boardOutLine[i,j]);
+                        Console.Write("{0} ", m_board[0, 0]);
+                    else if (i == 1 && j == 3)
+                        Console.Write("{0} ", m_board[0, 1]);
+                    else if (i == 1 && j == 5)
+                        Console.Write("{0} ", m_board[0, 2]);
+                    else if (i == 2 && j == 1)
+                        Console.Write("{0} ", m_board[1, 0]);
+                    else if (i == 2 && j == 3)
+                        Console.Write("{0} ", m_board[1, 1]);
+                    else if (i == 2 && j == 5)
+                        Console.Write("{0} ", m_board[1, 2]);
+                    else if (i == 3 && j == 1)
+                        Console.Write("{0} ", m_board[2, 0]);
+                    else if (i == 3 && j == 3)
+                        Console.Write("{0} ", m_board[2, 1]);
+                    else if (i == 3 && j == 5)
+                        Console.Write("{0} ", m_board[2, 2]);
+                    else
+                        Console.Write("{0} ", boardOutLine[i,j]);
                 }
             }
         }
@@ -82,7 +83,7 @@ namespace FirstCSharpProgram
             char previousside = '1';
             while (true)
             {
-                Console.Write("{0}'s turn:your move:",side);
+                Console.Write("\n{0}'s turn:your move:",side);
                 String input = Console.ReadLine().ToString();
                 if(side == previousside)
                 {
@@ -101,7 +102,7 @@ namespace FirstCSharpProgram
 
                     if (m_board[row, column] == ' ')
                     {
-                        m_board[row, column] = (side == 0 ? 'o' : 'x');
+                        m_board[row, column] = (side == 1 ? 'o' : 'x');
                         TicTacToe.DisplayBoard();
                         break;
                     }
@@ -134,7 +135,7 @@ namespace FirstCSharpProgram
             String searchD1 = "";
             searchD1 += TicTacToe.m_board[0, 0];
             searchD1 += TicTacToe.m_board[1, 1];
-            searchD1 += TicTacToe.m_board[2, 1];
+            searchD1 += TicTacToe.m_board[2, 2];
             
             String searchD2 = "";
             searchD2 += TicTacToe.m_board[0, 2];
@@ -148,7 +149,7 @@ namespace FirstCSharpProgram
             }
             if (searchD1 == "xxx")
             {
-                Console.WriteLine("x WINS");
+                Console.WriteLine("\nx WINS");
                 TicTacToe.m_win = true;
             }
             if(searchD2 == "ooo")
@@ -158,7 +159,7 @@ namespace FirstCSharpProgram
             }
             if (searchD2 == "xxx")
             {
-                Console.WriteLine("x WINS");
+                Console.WriteLine("\nx WINS");
                 TicTacToe.m_win = true;
             }
             if(searchH.Substring(0,3) == "ooo"
@@ -172,7 +173,7 @@ namespace FirstCSharpProgram
                 || searchH.Substring(3, 3) == "xxx"
                     || searchH.Substring(6, 3) == "xxx")
             {
-                Console.WriteLine("x WINS");
+                Console.WriteLine("\nx WINS");
                 TicTacToe.m_win = true;
             }
             if (searchV.Substring(0, 3) == "ooo"
@@ -186,7 +187,7 @@ namespace FirstCSharpProgram
                 || searchH.Substring(3, 3) == "xxx"
                     || searchH.Substring(6, 3) == "xxx")
             {
-                Console.WriteLine("x WINS");
+                Console.WriteLine("\nx WINS");
                 TicTacToe.m_win = true;
             }
             return TicTacToe.m_win;
