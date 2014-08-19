@@ -53,7 +53,19 @@ namespace FirstCSharpProgram
 
         static bool IsBoardFull()
         {
-            return false;
+            bool isFull = true;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (m_board[i, j] == ' ')
+                    {
+                        isFull = false;
+                        break;
+                    }
+                }
+            }
+            return isFull;
         }
 
         static System.Collections.Hashtable GetHashTable()
@@ -81,20 +93,29 @@ namespace FirstCSharpProgram
         static void EnterPosition(char side)
         {
             char previousside = '1';
+            bool enteredwrong = false;
             while (true)
             {
-                Console.Write("\n{0}'s turn:your move:",side);
+                Console.Write("\n\n{0}'s turn:your move:",side);
                 String input = Console.ReadLine().ToString();
-                if(side == previousside)
+                if (side == previousside && enteredwrong != true)
                 {
                     Console.Write("Not your Turn!!");
                     continue;
                 }
+                input = input.ToUpper();
+
                 previousside = side;
                 if (IsBoardFull() != true)
                 {
                     System.Collections.Hashtable tableMapping = TicTacToe.GetHashTable();
                     String position = (String)tableMapping[input];
+                    if (position == null)
+                    {
+                        Console.WriteLine("Invalid Input please re enter");
+                        enteredwrong = true;
+                        continue;
+                    }
                     String[] arrayposition = position.Split(',');
 
                     Int16 row = Int16.Parse(arrayposition[0]);
@@ -110,6 +131,10 @@ namespace FirstCSharpProgram
                     {
                         Console.WriteLine("Invalid Input please re enter");
                     }
+                }
+                else
+                {
+                    Console.WriteLine("Game Over NoBody Wins!!");
                 }
             }
         }
@@ -144,50 +169,50 @@ namespace FirstCSharpProgram
 
             if (searchD1 == "ooo")
             {
-                Console.WriteLine("o WINS");
+                Console.WriteLine("\n\no WINS");
                 TicTacToe.m_win = true;
             }
             if (searchD1 == "xxx")
             {
-                Console.WriteLine("\nx WINS");
+                Console.WriteLine("\n\nx WINS");
                 TicTacToe.m_win = true;
             }
             if(searchD2 == "ooo")
             { 
-                Console.WriteLine("o WINS");
+                Console.WriteLine("\n\no WINS");
                 TicTacToe.m_win = true;
             }
             if (searchD2 == "xxx")
             {
-                Console.WriteLine("\nx WINS");
+                Console.WriteLine("\n\nx WINS");
                 TicTacToe.m_win = true;
             }
             if(searchH.Substring(0,3) == "ooo"
                 ||searchH.Substring(3,3) == "ooo"
                     ||searchH.Substring(6,3) == "ooo")
             {
-                Console.WriteLine("o WINS");
+                Console.WriteLine("\n\no WINS");
                 TicTacToe.m_win = true;
             }
             if (searchH.Substring(0, 3) == "xxx"
                 || searchH.Substring(3, 3) == "xxx"
                     || searchH.Substring(6, 3) == "xxx")
             {
-                Console.WriteLine("\nx WINS");
+                Console.WriteLine("\n\nx WINS");
                 TicTacToe.m_win = true;
             }
             if (searchV.Substring(0, 3) == "ooo"
                 || searchH.Substring(3, 3) == "ooo"
                     || searchH.Substring(6, 3) == "ooo")
             {
-                Console.WriteLine("o WINS");
+                Console.WriteLine("\n\no WINS");
                 TicTacToe.m_win = true;
             }
             if (searchV.Substring(0, 3) == "xxx"
                 || searchH.Substring(3, 3) == "xxx"
                     || searchH.Substring(6, 3) == "xxx")
             {
-                Console.WriteLine("\nx WINS");
+                Console.WriteLine("\n\nx WINS");
                 TicTacToe.m_win = true;
             }
             return TicTacToe.m_win;
