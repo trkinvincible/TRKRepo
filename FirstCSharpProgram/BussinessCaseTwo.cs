@@ -26,7 +26,7 @@ namespace FirstCSharpProgram
                 Address.m_code = Int32.Parse(code[1].ToString());
             }
 
-            Address.m_code += String." ";
+            ;//Address.m_code += String." ";
 
         }
     }
