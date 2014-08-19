@@ -11,7 +11,7 @@ namespace FirstCSharpProgram
                                         {' ',' ',' '},
                                         {' ',' ',' '},
                                         {' ',' ',' '}};
-        public static bool m_win;
+        public static bool m_win = false;
         public static System.Collections.Hashtable m_inputHashTable;
         
         static void DisplayBoard()
@@ -27,6 +27,24 @@ namespace FirstCSharpProgram
                 Console.WriteLine(" ----------");
                 for (int j = 0; j < 6;j++)
                 {
+                    if(i == 1 && j == 1)
+                        Console.Write("{0} ", m_board[i, j]);
+                    if (i == 1 && j == 1)
+                        Console.Write("{0} ", m_board[i, j]);
+                    if (i == 1 && j == 1)
+                        Console.Write("{0} ", m_board[i, j]);
+                    if (i == 1 && j == 1)
+                        Console.Write("{0} ", m_board[i, j]);
+                    if (i == 1 && j == 1)
+                        Console.Write("{0} ", m_board[i, j]);
+                    if (i == 1 && j == 1)
+                        Console.Write("{0} ", m_board[i, j]);
+                    if (i == 1 && j == 1)
+                        Console.Write("{0} ", m_board[i, j]);
+                    if (i == 1 && j == 1)
+                        Console.Write("{0} ", m_board[i, j]);
+                    if (i == 1 && j == 1)
+                        Console.Write("{0} ", m_board[i, j]);
                     Console.Write("{0} ", boardOutLine[i,j]);
                 }
             }
@@ -95,48 +113,95 @@ namespace FirstCSharpProgram
             }
         }
 
-        static void CheckWinning()
+        static bool CheckWinning()
         {
             String searchH = "";
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 3; i++)
             {
-                for (int j = 0; j < 6; j++)
+                for (int j = 0; j < 3; j++)
                 {
                     searchH += TicTacToe.m_board[i,j];
                 }
             }
             String searchV = "";
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 3; i++)
             {
-                for (int j = 0; j < 6; j++)
+                for (int j = 0; j < 3; j++)
                 {
                     searchV += TicTacToe.m_board[j, i];
                 }
             }
             String searchD1 = "";
-            searchH += TicTacToe.m_board[0, 0];
-            searchH += TicTacToe.m_board[1, 1];
-            searchH += TicTacToe.m_board[2, 1];
+            searchD1 += TicTacToe.m_board[0, 0];
+            searchD1 += TicTacToe.m_board[1, 1];
+            searchD1 += TicTacToe.m_board[2, 1];
             
             String searchD2 = "";
-            for (int i = 0; i < 4; i++)
+            searchD2 += TicTacToe.m_board[0, 2];
+            searchD2 += TicTacToe.m_board[1, 1];
+            searchD2 += TicTacToe.m_board[2, 0];
+
+            if (searchD1 == "ooo")
             {
-                for (int j = 0; j < 6; j++)
-                {
-                    searchH += TicTacToe.m_board[i, j];
-                }
+                Console.WriteLine("o WINS");
+                TicTacToe.m_win = true;
             }
+            if (searchD1 == "xxx")
+            {
+                Console.WriteLine("x WINS");
+                TicTacToe.m_win = true;
+            }
+            if(searchD2 == "ooo")
+            { 
+                Console.WriteLine("o WINS");
+                TicTacToe.m_win = true;
+            }
+            if (searchD2 == "xxx")
+            {
+                Console.WriteLine("x WINS");
+                TicTacToe.m_win = true;
+            }
+            if(searchH.Substring(0,3) == "ooo"
+                ||searchH.Substring(3,3) == "ooo"
+                    ||searchH.Substring(6,3) == "ooo")
+            {
+                Console.WriteLine("o WINS");
+                TicTacToe.m_win = true;
+            }
+            if (searchH.Substring(0, 3) == "xxx"
+                || searchH.Substring(3, 3) == "xxx"
+                    || searchH.Substring(6, 3) == "xxx")
+            {
+                Console.WriteLine("x WINS");
+                TicTacToe.m_win = true;
+            }
+            if (searchV.Substring(0, 3) == "ooo"
+                || searchH.Substring(3, 3) == "ooo"
+                    || searchH.Substring(6, 3) == "ooo")
+            {
+                Console.WriteLine("o WINS");
+                TicTacToe.m_win = true;
+            }
+            if (searchV.Substring(0, 3) == "xxx"
+                || searchH.Substring(3, 3) == "xxx"
+                    || searchH.Substring(6, 3) == "xxx")
+            {
+                Console.WriteLine("x WINS");
+                TicTacToe.m_win = true;
+            }
+            return TicTacToe.m_win;
         }
         static void Main()
         {
             TicTacToe.DisplayBoard();
-            int yside = 1;
+            byte yside = 1;
             while (true)
             {
-                yside = ~yside;
+                yside = (byte)~yside;
                 char side = Convert.ToChar(yside);
                 TicTacToe.EnterPosition(side);
-
+                if (TicTacToe.CheckWinning() == true)
+                    break;
             }
 
             Console.ReadKey();
