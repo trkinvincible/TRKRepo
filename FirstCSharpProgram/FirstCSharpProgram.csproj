@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>FirstCSharpProgram.TicTacToe</StartupObject>
+    <StartupObject>FirstCSharpProgram.BussinessUseCase3</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="BussinessCaseOne.cs" />
     <Compile Include="BussinessCaseTwo.cs" />
+    <Compile Include="BussinessUseCase3.cs" />
     <Compile Include="MultiDimentionalArrayTestProg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SquareRoot.cs" />

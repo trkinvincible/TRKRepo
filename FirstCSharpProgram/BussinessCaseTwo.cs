@@ -21,10 +21,10 @@ namespace FirstCSharpProgram
             Console.WriteLine("Enter Code : ");
             String code = Console.Read().ToString();
             String[] codearray = code.Split(' ');
-            if (code[1] != null)
-            {
-                Address.m_code = Int32.Parse(code[1].ToString());
-            }
+            //if (code[1] != null)
+            //{
+            //    Address.m_code = Int32.Parse(code[1].ToString());
+            //}
 
             ;//Address.m_code += String." ";
 
